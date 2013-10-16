@@ -1,31 +1,61 @@
     <div class="jumbotron">
       <div class="container center">
         <h1>FAIL FAST, FAIL OFTEN.</h1>
-        <p>Fayl is a community where people share their failures, get support and advice, and discover tools and resources to do better next time.</p>
-        <p><a href="/fails/new" class="btn btn-primary btn-lg">Share Your Fail »</a> or <a href="/fails" class="btn btn-danger btn-lg">See All Fails »</a> </p>
+        <p>faylio is a community where people share their failures, get support and advice, and discover tools and resources to do better next time.</p>
+        <p><a href="/fails/new" class="btn btn-primary btn-lg">Share Your Fail »</a> OR <a href="/fails" class="btn btn-danger btn-lg">See All Fails »</a> </p>
       </div>
     </div>
 
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-sm-4">
-          <h2>Share Your Failures</h2>
+        <div class="col-sm-4 center">
+          <%= link_to image_tag("Share Your Fails.png", alt: "Share Your Fails", size: "170x180", class: "home-image-center") %>
+          <h2>Share Your Fails</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#">View details »</a></p>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4 center">
+          <%= link_to image_tag("Get Support and Advice.png", alt: "Get Support and Advice", size: "170x180", class: "home-image-center") %>
           <h2>Get Advice & Support</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#">View details »</a></p>
        </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4 center">
+          <%= link_to image_tag("Discover Tools and Resources.png", alt: "Discover Tools and Resources", size: "170x180", class: "home-image-center") %>
           <h2>Find Tools & Resources</h2>
           <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#">View details »</a></p>
         </div>
       </div>
+      <br>
       <hr>
+      <br>
+      <p class="center"><strong>-  WHAT THE GREATS ARE SAYING  -</strong></p> 
+      <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3 center">
+          <%= link_to image_tag("Edison.jpg", alt: "Edison", size: "140x140", class: "img-circle") %>
+        </div>
+        <div class="col-sm-9 center">
+          <h3>"I have not failed, I have just found 10,000 ways that don't work.<br>
+            All thanks to faylio's fantastic community."</h3>
+          <h4>Thomas A Edison, @ Lightbulb Inc</h4>
+      </div>
+    </div>
+      <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 center">
+                    <h3>“Only those who dare to fail greatly can ever achieve greatly.<br>
+            And faylio helps me fail greatly."</h3>
+          <h4>- Robert F Kennedy, @ Pres-E-Dent Ltd</h4>
+        </div>
+        <div class="col-sm-3 center">
+          <%= link_to image_tag("Kennedy.jpg", alt: "Kennedy", class: "img-circle") %>
+        </div>
+    </div>
+      <br>
+      <hr>
+      <br>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="//code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
