@@ -1,4 +1,20 @@
-    <div class="jumbotron">
+<% if signed_in? %>
+  <div class="row">
+    <aside class="col-sm-4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/fail_form' %>
+      </section>
+    </aside>
+    <div class="col-sm-8">
+      <h3>Fail Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+<div class="jumbotron">
       <div class="container center">
         <h1>FAIL FAST, FAIL OFTEN.</h1>
         <p>faylio is a community where people share their failures, get support and advice, and discover tools and resources to do better next time.</p>
@@ -56,6 +72,8 @@
       <br>
       <hr>
       <br>
+      <% end %>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="//code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

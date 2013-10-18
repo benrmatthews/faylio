@@ -15,5 +15,10 @@
                    password: password,
                    password_confirmation: password)
     end
+    users = User.all(limit: 6)
+    50.times do
+      headline = Faker::Lorem.sentence(5)
+      users.each { |user| user.fails.create!(headline: headline) }
+    end
   end
 end

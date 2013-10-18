@@ -1,0 +1,11 @@
+<li>
+  <span class="headline"><%= fail.headline %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(fail.created_at) %> ago.
+  </span>
+  <% if current_user?(fail.user) %>
+    <%= link_to "delete", fail, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: fail.headline %>
+  <% end %>
+</li>
