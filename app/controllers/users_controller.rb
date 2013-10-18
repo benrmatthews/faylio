@@ -29,8 +29,7 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
-   end 
-  end
+  end 
 
   def update
     if @user.update_attributes(user_params)
