@@ -244,3 +244,15 @@ aside {
     margin-bottom: 5px;
   }
 }
+
+#comments {
+  padding: 0 20px;
+}
+
+.comment {
+  border-bottom: solid 1px #999;
+  margin: 15px 0;
+  &:last-child {
+    border-bottom: none;
+  }
+}

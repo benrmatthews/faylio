@@ -1,17 +1,15 @@
 Faylio::Application.routes.draw do
-  get "comments/index"
-  get "comments/new"
-  resources :fails do
-    resources :comments
-  end
-
+  
   resources :users do
     member do
       get :following, :followers
     end
   end
   resources :sessions,      only: [:new, :create, :destroy]
-  resources :fails,         only: [:create, :destroy]
+  
+  resources :fails do
+      resources :comments
+  end
   resources :relationships, only: [:create, :destroy]
   
   get "users/new"
@@ -32,4 +30,5 @@ Faylio::Application.routes.draw do
   match '/terms',       to: 'static_pages#terms',       via: 'get'
   match '/privacy',     to: 'static_pages#privacy',     via: 'get'
   match '/security',    to: 'static_pages#security',    via: 'get'
+  
 end

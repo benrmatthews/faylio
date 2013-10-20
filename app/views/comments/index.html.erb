@@ -1,5 +1,10 @@
 <h1>Comments</h1>
 
-<%= render 'comments' %>
-
-<p><%= link_to "New Comment", [:new, @commentable, :comment] %></p>
+<div id="comments">
+  <% @comments.each do |comment| %>
+    <div class="comment">
+      <%= simple_format comment.content %>
+      <%= gravatar_for comment.user %>
+    </div>
+  <% end %>
+</div>

@@ -1,5 +1,4 @@
 class FailsController < ApplicationController
-  before_action :set_fail, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:create, :destroy]
   before_action :correct_user,   only: :destroy
   
@@ -12,11 +11,12 @@ class FailsController < ApplicationController
   # GET /fails/1
   # GET /fails/1.json
   def show
+    @fail = Fail.find(params[:id])
     @commentable = @fail
     @comments = @commentable.comments
     @comment = Comment.new
   end
-
+  
   # GET /fails/new
   def new
     @fail = Fail.new
