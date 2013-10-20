@@ -1,5 +1,4 @@
 class Fail < ActiveRecord::Base
-  attr_accessible :content, :name
   has_many :comments, as: :commentable
   belongs_to :user
   default_scope -> { order('created_at DESC') }
