@@ -1,7 +1,7 @@
 <div id="comments">
   <% @comments.each do |comment| %>
     <div class="comment">
-      <%= comment.content %><br>
+      <%= comment.content %><br><br />
       <strong><%= gravatar_for current_user %> Commented <%= time_ago_in_words(comment.created_at) %> ago.</strong><br>
     </div>
   <% end %>
