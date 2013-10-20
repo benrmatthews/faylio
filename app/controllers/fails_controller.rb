@@ -5,7 +5,11 @@ class FailsController < ApplicationController
   # GET /fails
   # GET /fails.json
   def index
-    @fails = Fail.all
+    if params[:tag]
+      @fails = Fail.tagged_with(params[:tag])
+    else
+      @fails = Fail.all
+    end
   end
 
   # GET /fails/1
