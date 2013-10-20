@@ -22,7 +22,6 @@
         <td><%= fail.lesson %></td>
         <td><%= fail.link %></td>
         <td><%= fail.user_id %></td>
-        <%= raw fail.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
         <td><%= link_to 'Show', fail %></td>
         <td><%= link_to 'Edit', edit_fail_path(fail) %></td>
         <td><%= link_to 'Destroy', fail, method: :delete, data: { confirm: 'Are you sure?' } %></td>

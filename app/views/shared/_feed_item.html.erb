@@ -3,8 +3,6 @@
       <span class="timestamp user">
         Posted by <%= link_to feed_item.user.name, feed_item.user %> <%= time_ago_in_words(feed_item.created_at) %> ago.
       </span><br>
-      <span class="timestamp user">
-      <!-- <p>Tags: <%= raw fail.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p> -->
        <span class="timestamp user">
           Follow | <%= link_to "Comments", feed_item %> | Share
         </span><br>
