@@ -12,4 +12,16 @@
     </strong>
     followers
   </a>
+  <a href="<%= user_path(@user) %>">
+    <strong id="fails" class="stat">
+      <%= @user.fails.count %>
+    </strong>
+    fails shared
+  </a>
+    <a href="<%= user_path(@user) %>">
+    <strong id="fails" class="stat">
+      <%= @user.fails.count %>
+    </strong>
+    favourites
+  </a>
 </div>

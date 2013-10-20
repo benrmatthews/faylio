@@ -1,6 +1,8 @@
 class FailsController < ApplicationController
   before_action :set_fail, only: [:show, :edit, :update, :destroy]
-
+  before_action :signed_in_user, only: [:create, :destroy]
+  before_action :correct_user,   only: :destroy
+  
   # GET /fails
   # GET /fails.json
   def index
@@ -20,20 +22,15 @@ class FailsController < ApplicationController
   # GET /fails/1/edit
   def edit
   end
-
-  # POST /fails
-  # POST /fails.json
+  
   def create
-    @fail = Fail.new(fail_params)
-
-    respond_to do |format|
-      if @fail.save
-        format.html { redirect_to @fail, notice: 'Fail was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @fail }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @fail.errors, status: :unprocessable_entity }
-      end
+    @fail = current_user.fails.build(fail_params)
+    if @fail.save
+      flash[:success] = "Fail created!"
+      redirect_to root_url
+    else
+      @feed_items = []
+      render 'static_pages/home'
     end
   end
 
@@ -55,10 +52,7 @@ class FailsController < ApplicationController
   # DELETE /fails/1.json
   def destroy
     @fail.destroy
-    respond_to do |format|
-      format.html { redirect_to fails_url }
-      format.json { head :no_content }
-    end
+    redirect_to root_url
   end
 
   private

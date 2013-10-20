@@ -1,29 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Headline:</strong>
+  <div class="row">
+    <aside class="col-sm-3">
+    </aside>
+    <aside class="col-sm-6">
+      <br>
+<h3>
   <%= @fail.headline %>
-</p>
-
+</h3>
+      
 <p>
-  <strong>Description:</strong>
+  Shared by <strong><%= link_to @fail.user.name, @fail.user  %></strong>
+</p>
+      
+<p>
+  <strong>Description:</strong><br>
   <%= @fail.description %>
 </p>
 
 <p>
-  <strong>Lesson:</strong>
+  <strong>Lessons Learned:</strong><br>
   <%= @fail.lesson %>
 </p>
 
 <p>
-  <strong>Link:</strong>
+  <strong>Further Reading:</strong><br>
   <%= @fail.link %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @fail.user_id %>
 </p>
 
 <%= link_to 'Edit', edit_fail_path(@fail) %> |
 <%= link_to 'Back', fails_path %>
+      
+
+    </aside>
+    <aside class="col-sm-3">
+    </aside>

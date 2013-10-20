@@ -8,17 +8,23 @@
                     </button>
                     <a class="navbar-brand" href="#">faylio</a>
                   </div>
-                  <div class="navbar-collapse collapse navbar-responsive-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                      <li><form class="navbar-form">
-                      <input type="text" class="form-control col-lg-8" placeholder="Search">
-                        </form></li>
+                 <div class="navbar-collapse collapse navbar-responsive-collapse">
             <% if signed_in? %>
-                      <li><%= link_to "Users", '#' %></li>
-            <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
+              <ul class="nav navbar-nav navbar-left">
+                <li>
+                  <form class="navbar-form">
+                    <input type="text" class="form-control col-lg-8" placeholder="Search">
+                  </form>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to "Home", root_path %></li>
+                <li><%= link_to current_user.name, current_user %></li>
+                <li id="fat-menu" class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Account <b class="caret"></b>
+                </a>
+              </ul>
               <ul class="dropdown-menu">
                 <li><%= link_to "Profile", current_user %></li>
                 <li><%= link_to "Settings", edit_user_path(current_user) %></li>
@@ -27,23 +33,30 @@
                   <%= link_to "Sign out", signout_path, method: "delete" %>
                 </li>
               </ul>
-            </li>
+                 
+              <li>
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <form class="navbar-form">
+                  <li><%= link_to "Share New Fail", new_fail_path, class: "btn btn-default" %>
+                </form>
+              </li>
+            </ul>
           <% else %>
-            <li>
-              <form class="navbar-form">
-                <%= link_to "Sign in", signin_path, class: "btn btn-default" %>
-              </form>
-            </li>
-            <li>
-              <form class="navbar-form">
-                <li><%= link_to "Sign up", signup_path, class: "btn btn-danger" %>
-              </form>
-            </li>
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <form class="navbar-form">
+                  <%= link_to "Sign in", signin_path, class: "btn btn-default" %>
+                </form>
+              </li>
+              <li>
+                <form class="navbar-form">
+                  <li><%= link_to "Sign up", signup_path, class: "btn btn-danger" %>
+                </form>
+              </li>
+            </ul>
           <% end %>
-        </ul>
-                        </ul>
-                      </li>
-                    </ul>
+
                   </div><!-- /.nav-collapse -->
                 </div><!-- /.container -->
-              </div>
+          
