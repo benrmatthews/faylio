@@ -1,5 +1,9 @@
 Faylio::Application.routes.draw do
-  resources :fails
+  get "comments/index"
+  get "comments/new"
+  resources :fails do
+    resources :comments
+  end
 
   resources :users do
     member do

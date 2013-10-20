@@ -12,6 +12,9 @@ class FailsController < ApplicationController
   # GET /fails/1
   # GET /fails/1.json
   def show
+    @commentable = @fail
+    @comments = @commentable.comments
+    @comment = Comment.new
   end
 
   # GET /fails/new
