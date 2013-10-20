@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131018215516) do
+ActiveRecord::Schema.define(version: 20131018222318) do
 
   create_table "fails", force: true do |t|
     t.string   "headline"

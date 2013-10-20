@@ -1,4 +1,6 @@
 Faylio::Application.routes.draw do
+  resources :fails
+
   resources :users do
     member do
       get :following, :followers

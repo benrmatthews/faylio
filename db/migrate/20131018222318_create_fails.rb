@@ -1,4 +1,5 @@
 class CreateFails < ActiveRecord::Migration
+  drop_table :fails
   def change
     create_table :fails do |t|
       t.string :headline
