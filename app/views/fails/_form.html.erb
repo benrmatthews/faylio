@@ -17,19 +17,15 @@
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_area :description %>
   </div>
   <div class="field">
     <%= f.label :lesson %><br>
-    <%= f.text_field :lesson %>
+    <%= f.text_area :lesson %>
   </div>
   <div class="field">
     <%= f.label :link %><br>
     <%= f.text_field :link %>
-  </div>
-  <div class="field">
-    <%= f.label :tag_list, "Tags (separated by commas)" %><br />
-    <%= f.text_field :tag_list %>
   </div>
   <div class="actions">
     <%= f.submit %>
