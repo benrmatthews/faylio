@@ -2,7 +2,7 @@
   <% @comments.each do |comment| %>
     <div class="comment">
       <%= markdown.render(comment.content).html_safe %>
-      <strong><%= gravatar_for current_user %> Commented <%= time_ago_in_words(comment.created_at) %> ago.</strong><br>
+      <strong>Commented <%= time_ago_in_words(comment.created_at) %> ago.</strong><br>
     </div>
   <% end %>
 </div>
