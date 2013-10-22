@@ -10,7 +10,7 @@
 </h3>
       
 <p>
-  Shared by <strong><%= link_to @fail.user.name, @fail.user  %></strong>
+  <%= gravatar_for @fail.user %> Shared by <strong><%= link_to @fail.user.name, @fail.user  %></strong>
 </p>
       
 <p>

@@ -1,30 +1,29 @@
 <% if signed_in? %>
   <div class="row">
-    <aside class="col-sm-2">
-      <!--  <section>
+    <aside class="col-sm-3">
+      <section>
         <%= render 'shared/user_info' %>
       </section>
       <section>
         <%= render 'shared/stats' %>
       </section>
-      <section>
-        <%= render 'shared/fail_form' %>
-      </section> -->
     </aside>
-    <div class="col-sm-8">
+    <div class="col-sm-6">
       <%= render 'shared/feed' %>
     </div>
-    <aside class="col-sm-2">
+    <aside class="col-sm-3">
     </aside
   </div>
 <% else %>
-<div class="jumbotron">
-      <div class="container center">
-        <h1>FAIL FAST, FAIL OFTEN.</h1>
-        <p>faylio is a community where people share their failures, get support and advice, and discover tools and resources to do better next time.</p>
-        <p><a href="/fails/new" class="btn btn-primary btn-lg">Share Your Fail »</a> OR <a href="/fails" class="btn btn-danger btn-lg">See All Fails »</a> </p>
-      </div>
-    </div>
+    
+<div class="container-fluid center">
+  <div class="jumbotron">
+    <h1>FAIL FAST, FAIL BETTER.</h1>
+      <p>faylio is a community where people share their failures, get support and advice, and discover tools and resources to do better next time.</p>
+      <p><a href="/fails/new" class="btn btn-primary btn-lg">Share Your Fail »</a> OR <a href="/fails" class="btn btn-danger btn-lg">See All Fails »</a> </p>
+  </div>
+</div>
+    
 
     <div class="container">
       <!-- Example row of columns -->
