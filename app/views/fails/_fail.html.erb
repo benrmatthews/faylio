@@ -5,6 +5,8 @@
       </span><br>
        <span class="timestamp user">
           Follow | <%= link_to "Comments", fail %> | Share
+         | <%= link_to "up", vote_fail_path(fail, type: "up"), method: "post" %>
+         | <%= link_to "down", vote_fail_path(fail, type: "down"), method: "post" %>
         </span><br>
     <% if current_user?(fail.user) %>
         <%= link_to "Delete?", fail, method: :delete,

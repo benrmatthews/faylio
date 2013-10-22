@@ -46,6 +46,10 @@ class User < ActiveRecord::Base
   def to_param
     "#{id}-#{name}".parameterize
   end
+  
+  def total_votes
+    FailVote.joins(:fail).where(fails: {user_id: self.id}).sum('value')
+  end
 
   private
 

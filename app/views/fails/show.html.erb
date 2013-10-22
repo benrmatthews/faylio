@@ -15,17 +15,17 @@
       
 <p>
   <strong>Description:</strong><br>
-  <%= markdown.render(@fail.description).html_safe %>
+  <%= @fail.description %>
 </p>
 
 <p>
   <strong>Lessons Learned:</strong><br>
-  <%= markdown.render(@fail.lesson).html_safe %>
+  <%= @fail.lesson %>
 </p>
 
 <p>
   <strong>Further Reading:</strong><br>
-  <%= markdown.render(@fail.link).html_safe %>
+  <%= raw markdown.render(@fail.link) %>
 </p>
 
 <%= link_to 'Edit', edit_fail_path(@fail) %> |

@@ -9,6 +9,7 @@ Faylio::Application.routes.draw do
   
   resources :fails do
       resources :comments
+      member { post :vote }
   end
   resources :relationships, only: [:create, :destroy]
   

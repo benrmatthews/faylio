@@ -5,7 +5,7 @@ class FailsController < ApplicationController
   # GET /fails
   # GET /fails.json
   def index
-    @fails = Fail.all
+    @fail = Fail.find_with_reputation(:votes, :all, order: 'votes desc')
   end
 
   # GET /fails/1
@@ -57,7 +57,13 @@ class FailsController < ApplicationController
     @fail.destroy
     redirect_to root_url
   end
-
+  
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @fail = Fail.find(params[:id])
+    redirect_to :back, notice: "Thank you for voting!"
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_fail
