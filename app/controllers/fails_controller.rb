@@ -5,7 +5,7 @@ class FailsController < ApplicationController
   # GET /fails
   # GET /fails.json
   def index
-    @fail = Fail.find_with_reputation(:votes, :all, order: 'votes desc')
+    @fails = Fail.paginate(page: params[:page])
   end
 
   # GET /fails/1
