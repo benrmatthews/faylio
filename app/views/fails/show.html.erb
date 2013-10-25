@@ -6,30 +6,36 @@
     <aside class="col-sm-6">
       <br>
 <h3>
-  <%= @fail.headline %>
+  <strong>
+    <%= @fail.headline %>
+  </strong>
 </h3>
-      
+            
 <p>
   <%= gravatar_for @fail.user %> Shared by <strong><%= link_to @fail.user.name, @fail.user  %></strong>
 </p>
       
 <p>
+ Comments • Share (66) • Report • Options
+</p>
+      
+<p>
   <strong>Description:</strong><br>
-  <%= @fail.description %>
+  <%= markdown @fail.description %>
 </p>
 
 <p>
   <strong>Lessons Learned:</strong><br>
-  <%= @fail.lesson %>
+  <%= markdown @fail.lesson %>
 </p>
 
 <p>
   <strong>Further Reading:</strong><br>
-  <%= raw markdown.render(@fail.link) %>
+  <%= markdown @fail.link %>
 </p>
 
-<%= link_to 'Edit', edit_fail_path(@fail) %> |
-<%= link_to 'Back', fails_path %>
+<!-- <%= link_to 'Edit', edit_fail_path(@fail) %> | -->
+<!-- <%= link_to 'Back', fails_path %> -->
       
 <h4>Comments</h4>
 
