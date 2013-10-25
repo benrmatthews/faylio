@@ -3,6 +3,6 @@
 <% @activities.each do |activity| %>
   <%= div_for activity do %>
     <%= link_to activity.user.name, activity.user %>
-    <%= render "activities/#{activity.trackable_type.underscore}/#{activity.action}", activity.trackable_type.underscore.to_sym => activity %>
+    <%= render "activities/#{activity.trackable_type.underscore}/#{activity.action}", activity: activity %>
   <% end %>
 <% end %>
