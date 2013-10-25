@@ -12,7 +12,6 @@ class CommentsController < ApplicationController
   def create
      @comment = @commentable.comments.new(params.require(:comment).permit(:content))
     if @comment.save
-      track_activity @commentable
       redirect_to @commentable, notice: "Comment created."
     else
       render :new
