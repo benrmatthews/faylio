@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
                                    class_name:  "Relationship",
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
+  has_many :activities
   
   def User.new_remember_token
     SecureRandom.urlsafe_base64

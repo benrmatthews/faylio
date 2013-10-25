@@ -30,7 +30,8 @@ class FailsController < ApplicationController
     @fail = current_user.fails.build(fail_params)
     if @fail.save
       flash[:success] = "Fail created!"
-      redirect_to root_url
+      track_activity @fail
+      redirect_to @fail, notice: "Fail was created."
     else
       @feed_items = []
       render 'static_pages/home'
@@ -42,6 +43,7 @@ class FailsController < ApplicationController
   def update
     respond_to do |format|
       if @fail.update(fail_params)
+        track_activity @fail
         format.html { redirect_to @fail, notice: 'Fail was successfully updated.' }
         format.json { head :no_content }
       else
@@ -55,12 +57,14 @@ class FailsController < ApplicationController
   # DELETE /fails/1.json
   def destroy
     @fail.destroy
+    track_activity @fail
     redirect_to root_url
   end
   
   def vote
     value = params[:type] == "up" ? 1 : -1
     @fail = Fail.find(params[:id])
+    track_activity @fail
     redirect_to :back, notice: "Thank you for voting!"
   end
   
