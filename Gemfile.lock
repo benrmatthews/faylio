@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/bmabey/database_cleaner.git
-  revision: 6da38c4c1a565bbcc62ed9b84c2574537c6ebae2
+  revision: 733849482546297c48f97b292cf3ad4e498eaad0
   specs:
     database_cleaner (1.2.0)
 
@@ -54,10 +54,10 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    cucumber (1.3.8)
+    cucumber (1.3.9)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.3)
-      gherkin (~> 2.12.1)
+      gherkin (~> 2.12)
       multi_json (>= 1.7.5, < 2.0)
       multi_test (>= 0.0.2)
     cucumber-rails (1.4.0)
@@ -65,7 +65,7 @@ GEM
       cucumber (>= 1.2.0)
       nokogiri (>= 1.5.0)
       rails (>= 3.0.0)
-    diff-lcs (1.2.4)
+    diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.0.2)
     factory_girl (4.2.0)
@@ -75,10 +75,15 @@ GEM
       railties (>= 3.0.0)
     faker (1.1.2)
       i18n (~> 0.5)
-    ffi (1.9.0)
+    faraday (0.8.8)
+      multipart-post (~> 1.2.0)
+    ffi (1.9.3)
     gherkin (2.12.2)
       multi_json (~> 1.3)
     hike (1.2.3)
+    honeybadger (1.9.3)
+      faraday (~> 0.7)
+      json
     i18n (0.6.5)
     jbuilder (1.0.2)
       activesupport (>= 3.0.0)
@@ -94,6 +99,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.2)
     multi_test (0.0.2)
+    multipart-post (1.2.0)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     pg (0.15.1)
@@ -189,6 +195,7 @@ DEPENDENCIES
   database_cleaner!
   factory_girl_rails (= 4.2.0)
   faker (= 1.1.2)
+  honeybadger
   jbuilder (= 1.0.2)
   jquery-rails (= 3.0.4)
   pg (= 0.15.1)
