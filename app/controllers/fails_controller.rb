@@ -1,5 +1,5 @@
 class FailsController < ApplicationController
-  before_action :signed_in_user, only: [:create, :destroy]
+  # before_action :signed_in_user, only: [:create, :destroy]
   before_action :correct_user,   only: :destroy
   
   # GET /fails
@@ -30,7 +30,6 @@ class FailsController < ApplicationController
     @fail = current_user.fails.build(fail_params)
     if @fail.save
       flash[:success] = "Fail created!"
-      track_activity @fail
       redirect_to @fail, notice: "Fail was created."
     else
       @feed_items = []
@@ -43,7 +42,6 @@ class FailsController < ApplicationController
   def update
     respond_to do |format|
       if @fail.update(fail_params)
-        track_activity @fail
         format.html { redirect_to @fail, notice: 'Fail was successfully updated.' }
         format.json { head :no_content }
       else
@@ -57,7 +55,6 @@ class FailsController < ApplicationController
   # DELETE /fails/1.json
   def destroy
     @fail.destroy
-    track_activity @fail
     redirect_to root_url
   end
   
