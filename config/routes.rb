@@ -22,6 +22,8 @@ Faylio::Application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   
+  match "/blog" => redirect("/blog/")
+  
   match '/home',        to: 'static_pages#home',        via: 'get'
   match '/help',        to: 'static_pages#help',        via: 'get'
   match '/about',       to: 'static_pages#about',       via: 'get'
