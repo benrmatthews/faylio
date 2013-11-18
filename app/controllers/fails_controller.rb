@@ -1,5 +1,5 @@
 class FailsController < ApplicationController
-  # before_action :signed_in_user, only: [:create, :destroy]
+  before_action :signed_in_user, only: [:create, :destroy]
   before_action :correct_user,   only: :destroy
   
   # GET /fails
@@ -30,7 +30,7 @@ class FailsController < ApplicationController
     @fail = current_user.fails.build(fail_params)
     if @fail.save
       flash[:success] = "Fail created!"
-      redirect_to @fail, notice: "Fail was created."
+      redirect_to root_url
     else
       @feed_items = []
       render 'static_pages/home'
@@ -75,5 +75,9 @@ class FailsController < ApplicationController
     def fail_params
       params.require(:fail).permit(:headline, :description, :lesson, :link, :user_id)
     end
- 
+  
+    def correct_user
+      @fail = current_user.fails.find_by(id: params[:id])
+      redirect_to root_url if @fail.nil?
+    end
 end
