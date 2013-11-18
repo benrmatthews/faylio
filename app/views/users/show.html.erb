@@ -3,15 +3,16 @@
   <aside class="col-sm-3">
   </aside>
   <div class="col-sm-6">
-        <section>
-      <h1>
-        <%= gravatar_for @user %><br>
+     <div align="center"> 
+      <br>
+       <%= gravatar_for current_user %>
+       <h1>
         <%= @user.name %>
       </h1>
-    </section>
-    <section>
+     </div>
+    <div align="center">
       <%= render 'shared/stats' %>
-    </section>
+    </div>
       <ol class="fails">
         <%= render @fails %>
       </ol>

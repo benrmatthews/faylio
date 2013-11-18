@@ -1,5 +1,5 @@
 @import "bootstrap";
-body { padding-top: 60px; }
+body { padding-top: 40px; }
 
 /* mixins, variables, etc. */
 
@@ -151,7 +151,7 @@ aside {
 .stats {
   overflow: auto;
   a {
-    float: left;
+    float: center;
     padding: 0 10px;
     border-left: 1px solid $grayMediumLight;
     color: gray;
@@ -162,9 +162,6 @@ aside {
     &:hover {
       text-decoration: none;
     }
-  }
-  strong {
-    display: block;
   }
 }
 
@@ -235,7 +232,7 @@ input {
   color: $grayMediumLight;
 }
 .gravatar {
-  float: left;
+  float: center;
   margin-right: 10px;
 }
 aside {
@@ -258,7 +255,8 @@ aside {
 
 .jumbotron {
   background: url('/assets/peak.png') repeat scroll center center transparent;
-  height: 700px;
+  width: 100%;
+  height: auto;
 }
 
 .activity {
