@@ -1,24 +1,21 @@
 <% provide(:title, @user.name) %>
 <div class="row">
   <aside class="col-sm-3">
-    <section>
+  </aside>
+  <div class="col-sm-6">
+        <section>
       <h1>
-        <%= gravatar_for @user %>
+        <%= gravatar_for @user %><br>
         <%= @user.name %>
       </h1>
     </section>
     <section>
       <%= render 'shared/stats' %>
     </section>
-  </aside>
-  <div class="col-sm-6">
-    <% if @user.fails.any? %>
-      <h3><%= @user.fails.count %> fails</h3>
       <ol class="fails">
         <%= render @fails %>
       </ol>
       <%= will_paginate @fails %>
-    <% end %>
   </div>
     <aside class="col-sm-3">
   </aside>

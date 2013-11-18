@@ -61,7 +61,6 @@ class FailsController < ApplicationController
   def vote
     value = params[:type] == "up" ? 1 : -1
     @fail = Fail.find(params[:id])
-    track_activity @fail
     redirect_to :back, notice: "Thank you for voting!"
   end
   
