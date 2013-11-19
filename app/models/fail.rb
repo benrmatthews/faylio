@@ -1,8 +1,7 @@
 class Fail < ActiveRecord::Base
   belongs_to :user
-
-  has_many :comments, as: :commentable
   has_many :fail_votes
+  has_many :comments, as: :commentable
 
   default_scope -> { order('created_at DESC') }
   validates :headline, presence: true, length: { maximum: 140 }
@@ -16,7 +15,7 @@ class Fail < ActiveRecord::Base
 
   def votes
     read_attribute(:votes) || fail_votes.sum(:value)
-  end    
+  end
   
   # Returns fails from the users being followed by the given user.
   def self.from_users_followed_by(user)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131118210022) do
+ActiveRecord::Schema.define(version: 20131119135128) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -34,6 +34,17 @@ ActiveRecord::Schema.define(version: 20131118210022) do
   end
 
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
+
+  create_table "fail_votes", force: true do |t|
+    t.integer  "fail_id"
+    t.integer  "user_id"
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "fail_votes", ["fail_id"], name: "index_fail_votes_on_fail_id"
+  add_index "fail_votes", ["user_id"], name: "index_fail_votes_on_user_id"
 
   create_table "fails", force: true do |t|
     t.string   "headline"

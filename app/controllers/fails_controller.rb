@@ -59,9 +59,12 @@ class FailsController < ApplicationController
   end
   
   def vote
-    value = params[:type] == "up" ? 1 : -1
-    @fail = Fail.find(params[:id])
-    redirect_to :back, notice: "Thank you for voting!"
+    vote = current_user.fail_votes.new(value: params[:value], fail_id: params[:id])
+    if vote.save
+      redirect_to :back, notice: "Thank you for voting."
+    else
+      redirect_to :back, alert: "Unable to vote, perhaps you already did."
+    end
   end
   
   private

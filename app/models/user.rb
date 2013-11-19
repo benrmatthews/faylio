@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base  
   has_many :fails, dependent: :destroy
+  has_many :fail_votes
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
   has_many :reverse_relationships, foreign_key: "followed_id",
@@ -42,6 +43,14 @@ class User < ActiveRecord::Base
   
   def to_param
     "#{id}-#{name}".parameterize
+  end
+  
+  def total_votes
+    FailVote.joins(:fail).where(fails: {user_id: self.id}).sum('value')
+  end
+
+  def can_vote_for?(fail)
+    fail_votes.build(value: 1, fail: fail).valid?
   end
 
   private
