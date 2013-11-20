@@ -12,8 +12,13 @@
 </h3>
             
 <p>
-  <%= gravatar_for @fail.user %>Shared by <strong><%= link_to @fail.user.name, @fail.user  %> | <%= time_ago_in_words(@fail.created_at) %> ago.</strong>
+  <%= gravatar_for @fail.user %>Shared by <strong><%= link_to @fail.user.name, @fail.user  %> <%= time_ago_in_words(@fail.created_at) %> ago.</strong>
 </p>
+<% if current_user?(@fail.user) %>
+  <%= link_to "Delete Fail", @fail, method: :delete,
+                                         data: { confirm: "You sure?" },
+                                         title: @fail.headline %>
+  <% end %>
       
 <p>
   <strong>Description:</strong><br>
