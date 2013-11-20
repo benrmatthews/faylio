@@ -29,7 +29,7 @@ class FailsController < ApplicationController
   def create
     @fail = current_user.fails.build(fail_params)
     if @fail.save
-      flash[:success] = "Fail created!"
+      flash[:notice] = "Fail created!"
       redirect_to root_url
     else
       @feed_items = []
@@ -55,15 +55,15 @@ class FailsController < ApplicationController
   # DELETE /fails/1.json
   def destroy
     @fail.destroy
-    redirect_to root_url
+    redirect_to '/fails', notice: "fail deleted."
   end
   
   def vote
     vote = current_user.fail_votes.new(value: params[:value], fail_id: params[:id])
     if vote.save
-      redirect_to :back, notice: "Thank you for voting."
+      redirect_to :back, notice: "Thank you for praising this fail!."
     else
-      redirect_to :back, alert: "Unable to vote, perhaps you already did."
+      redirect_to :back, notice: "Unable to praise, perhaps you already have?"
     end
   end
   

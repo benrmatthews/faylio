@@ -6,7 +6,11 @@
 </span>
   <br>
 <span class="timestamp user">
-  <%= link_to image_tag("heart.png", alt: "Discover Tools and Resources", class: "home-image-center", size: "25"), vote_fail_path(fail, value: 1), method: "post" %>
+  <% if current_user.can_vote_for?(fail) %>
+    <%= link_to image_tag("grey-heart.png", alt: "Praise this fail", size: "25"), vote_fail_path(fail, value: 1), method: "post" %>
+  <% else %>
+    <%= link_to image_tag("heart.png", alt: "You have praised this fail", size: "25") %>
+  <% end %>
   <%= fail.votes %> praised this fail | <%= link_to "Comments", fail %><br>
 </span>
 <span class="timestamp user">
