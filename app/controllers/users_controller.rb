@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:notice] = "Welcome to faylio!"
-      redirect_to @user
+      redirect_to root_url
     else
       render 'new'
     end
