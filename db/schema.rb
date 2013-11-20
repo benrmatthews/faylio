@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131119135128) do
+ActiveRecord::Schema.define(version: 20131120202209) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -47,10 +47,10 @@ ActiveRecord::Schema.define(version: 20131119135128) do
   add_index "fail_votes", ["user_id"], name: "index_fail_votes_on_user_id"
 
   create_table "fails", force: true do |t|
-    t.string   "headline"
+    t.text     "headline",    limit: 255
     t.text     "description"
     t.text     "lesson"
-    t.string   "link"
+    t.text     "link",        limit: 255
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
