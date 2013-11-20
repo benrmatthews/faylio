@@ -61,7 +61,7 @@ class FailsController < ApplicationController
   def vote
     vote = current_user.fail_votes.new(value: params[:value], fail_id: params[:id])
     if vote.save
-      redirect_to :back, notice: "Thank you for praising this fail!."
+      redirect_to :back, notice: "Thank you for praising this fail!"
     else
       redirect_to :back, notice: "Unable to praise, perhaps you already have?"
     end
