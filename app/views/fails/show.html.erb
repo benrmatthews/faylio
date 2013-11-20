@@ -12,11 +12,7 @@
 </h3>
             
 <p>
-  <%= gravatar_for @fail.user %>Shared by <strong><%= link_to @fail.user.name, @fail.user  %></strong>
-</p>
-      
-<p>
-  <!-- <%= link_to image_tag("gear.png", alt: "Settings", size: "25") %> • Comments • Share (66) • Report • Options -->
+  <%= gravatar_for @fail.user %>Shared by <strong><%= link_to @fail.user.name, @fail.user  %> | <%= time_ago_in_words(@fail.created_at) %> ago.</strong>
 </p>
       
 <p>

@@ -6,7 +6,11 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </button>
-                    <%= link_to "faylio", root_path, class: "navbar-brand" %>
+                    <% if signed_in? %>
+                    <%= link_to "faylio", '/fails', class: "navbar-brand" %>
+                    <% else %>
+                      <%= link_to "faylio", root_path, class: "navbar-brand" %>
+                    <% end %>
                   </div>
                  <div class="navbar-collapse collapse navbar-responsive-collapse">
             <% if signed_in? %>
