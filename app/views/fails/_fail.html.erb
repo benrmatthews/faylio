@@ -1,8 +1,8 @@
 <div class="row">
-  <div class="col-md-8">
+  <aside class="col-md-8">
     <h3><%= link_to fail.headline, fail %></h3>
        <div class="row">
-         <div class="col-md-12">
+         <aside class="col-md-12">
            <%= gravatar_for fail.user %><%= link_to fail.user.name, fail.user %> shared this <%= time_ago_in_words(fail.created_at) %> ago.</br>
            <%= link_to image_tag("heart.png", alt: "Praise this fail", size: "25"), vote_fail_path(fail, value: 1), method: "post" %>
            <%= fail.votes %> praised this fail | <%= link_to "Comments", fail %><br>
@@ -11,6 +11,6 @@
                                                      data: { confirm: "You sure?" },
                                                      title: fail.headline %>
            <% end %>
-       </div>
-  </div>
+       </aside>
+  </aside>
 </div>

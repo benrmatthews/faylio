@@ -4,8 +4,6 @@
        <div class="row">
          <div class="col-md-6">
            <%= gravatar_for feed_item.user %><%= link_to feed_item.user.name, feed_item.user %> shared this <%= time_ago_in_words(feed_item.created_at) %> ago.
-         </div>
-         <div class="col-md-6">  
            <%= link_to image_tag("heart.png", alt: "Praise", size: "25"), vote_fail_path(feed_item, value: 1), method: "post" %>
            <%= feed_item.votes %> praised this fail
            <% if current_user?(feed_item.user) %>

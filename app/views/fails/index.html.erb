@@ -3,8 +3,7 @@
 <aside class="col-sm-6">
   <%= form_tag fails_path, method: :get do %>
     <p>
-      <%= text_field_tag :query, params[:query] %>
-      <%= submit_tag "Search", name: nil %>
+      <%= text_field_tag :query, params[:query], :onclick => 'if($(this).val()=="Search..."){$(this).val("");};', :placeholder => 'Search', :class => "  search-query form-control" %>
     </p>
   <% end %>
   <%= render @fails %>
