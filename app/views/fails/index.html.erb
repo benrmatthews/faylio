@@ -1,6 +1,7 @@
 <aside class="col-sm-1">
 </aside>
 <aside class="col-sm-2">
+  <div data-spy="affix">
   <br>  
   <%= form_tag fails_path, method: :get do %>
     <p>
@@ -13,6 +14,7 @@
     <li><%= link_to "Your Fails", current_user, :class => "h4" %></li>
     <li><%= link_to "Submit", new_fail_path, :class => "h4" %></li>
   </ul>
+  </div>
 </aside>
 <aside class="col-sm-1">
 </aside>
