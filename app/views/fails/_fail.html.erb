@@ -1,17 +1,16 @@
-<span class="headline">
-  <h3><%= link_to fail.headline, fail %></h3>
-</span>
-<span class="timestamp user">
-  <%= gravatar_for fail.user %><%= link_to fail.user.name, fail.user %> shared this <%= time_ago_in_words(fail.created_at) %> ago.
-</span>
-  <br>
-<span class="timestamp user">
-    <%= link_to image_tag("heart.png", alt: "Praise this fail", size: "25"), vote_fail_path(fail, value: 1), method: "post" %>
-  <%= fail.votes %> praised this fail | <%= link_to "Comments", fail %><br>
-</span>
-<span class="timestamp user">
-  <% if current_user?(fail.user) %>
-  <%= link_to "Delete?", fail, method: :delete,
-                                         data: { confirm: "You sure?" },
-                                         title: fail.headline %>
-  <% end %>
+<div class="row">
+  <div class="col-md-8">
+    <h3><%= link_to fail.headline, fail %></h3>
+       <div class="row">
+         <div class="col-md-12">
+           <%= gravatar_for fail.user %><%= link_to fail.user.name, fail.user %> shared this <%= time_ago_in_words(fail.created_at) %> ago.</br>
+           <%= link_to image_tag("heart.png", alt: "Praise this fail", size: "25"), vote_fail_path(fail, value: 1), method: "post" %>
+           <%= fail.votes %> praised this fail | <%= link_to "Comments", fail %><br>
+           <% if current_user?(fail.user) %>
+           <%= link_to "Delete?", fail, method: :delete,
+                                                     data: { confirm: "You sure?" },
+                                                     title: fail.headline %>
+           <% end %>
+       </div>
+  </div>
+</div>

@@ -1,7 +1,9 @@
 <aside class="col-sm-3">
 </aside>
 <aside class="col-sm-6">
-<h1>Lastest Fails</h1>
+ <%= form_tag fails_path, method: :get do %>
+                      <%= text_field_tag :query, params[:query], :onclick => 'if($(this).val()=="Search"){$(this).val("");};', :placeholder => 'Search', :class => ' search-query form-control' %>
+                      <% end %>
   <%= render @fails %>
 </aside>
 <aside class="col-sm-3">
