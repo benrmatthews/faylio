@@ -1,16 +1,65 @@
 <div class="row">
   <aside class="col-md-8">
     <h3><%= link_to fail.headline, fail %></h3>
+    <p><%= fail.description %></p>
        <div class="row">
          <aside class="col-md-12">
-           <%= gravatar_for fail.user %><%= link_to fail.user.name, fail.user %> shared this <%= time_ago_in_words(fail.created_at) %> ago.</br>
+           <%= gravatar_for fail.user %><%= link_to fail.user.name, fail.user %> shared this <%= time_ago_in_words(fail.created_at) %> ago</br>
            <%= link_to image_tag("heart.png", alt: "Praise this fail", size: "25"), vote_fail_path(fail, value: 1), method: "post" %>
-           <%= fail.votes %> praised this fail | <%= link_to "Comments", fail %><br>
+           <%= link_to pluralize(fail.votes, 'praise'), vote_fail_path(fail, value: 1), method: "post" %>
+         | <%= link_to pluralize(fail.comments.size, 'comment'), fail %>
+         | <a data-toggle="modal" href="#myModal">share</a>
            <% if current_user?(fail.user) %>
-           <%= link_to "Delete?", fail, method: :delete,
+         | <%= link_to "Edit" %>
+         | <%= link_to "Delete", fail, method: :delete,
                                                      data: { confirm: "You sure?" },
                                                      title: fail.headline %>
            <% end %>
+         <br>
        </aside>
   </aside>
 </div>
+
+<div class="container">
+		<div id="myModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+ 
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Share</h4>
+                </div>
+                <div class="modal-body">
+                    <a href="http://www.jquery2dotnet.com" class="list-group-item facebook-like">
+                    <h3 class="pull-right">
+                        <i class="fa fa-facebook-square"></i>
+                    </h3>
+                    <h4 class="list-group-item-heading count">
+                        1000</h4>
+                    <p class="list-group-item-text">
+                        Facebook Likes</p>
+                </a><a href="http://www.jquery2dotnet.com" class="list-group-item google-plus">
+                    <h3 class="pull-right">
+                        <i class="fa fa-google-plus-square"></i>
+                    </h3>
+                    <h4 class="list-group-item-heading count">
+                        1000</h4>
+                    <p class="list-group-item-text">
+                        Google+</p>
+                </a><a href="http://www.jquery2dotnet.com" class="list-group-item twitter">
+                    <h3 class="pull-right">
+                        <i class="fa fa-twitter-square"></i>
+                    </h3>
+                    <h4 class="list-group-item-heading count">
+                        1000</h4>
+                    <p class="list-group-item-text">
+                        Twitter Followers</p>
+                </a>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                </div>
+                </div>
+ 
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dalog -->
+</div><!-- /.modal -->
