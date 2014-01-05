@@ -28,4 +28,12 @@ class Fail < ActiveRecord::Base
   def to_param
     "#{id}-#{headline}".parameterize
   end
+  
+  def self.text_search(query)
+    if query.present?
+      where("name @@ :q or content @@ :q", q: query)
+    else
+      scoped
+    end
+  end
 end

@@ -5,7 +5,7 @@ class FailsController < ApplicationController
   # GET /fails
   # GET /fails.json
   def index
-    @fails = Fail.paginate(page: params[:page])
+    @fails = Fail.text_search(params[:query]).paginate(page: params[:page])
   end
 
   # GET /fails/1
