@@ -13,16 +13,8 @@
                     <% end %>
                   </div>
                  <div class="navbar-collapse collapse navbar-responsive-collapse">
-                 <!-- <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                 <!--     <%= form_tag fails_path, method: :get do %>
-                 <!--     <%= text_field_tag :query, params[:query], :onclick => 'if($(this).val()=="Search"){$(this).val("");};', :placeholder => 'Search', :class => ' search-query form-control' %>
-                 <!--     <% end %>
-                    </div>
-                  </form> -->
              <% if signed_in? %>
               <ul class="nav navbar-nav navbar-right">
-                <!-- <li><%= link_to "Home", root_path %></li> -->
                 <li id="fat-menu">
                    <%= link_to current_user.name, current_user %>
                 <li>

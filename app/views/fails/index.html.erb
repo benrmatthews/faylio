@@ -1,12 +1,23 @@
-<aside class="col-sm-3">
+<aside class="col-sm-1">
 </aside>
-<aside class="col-sm-6">
+<aside class="col-sm-2">
+  <br>  
   <%= form_tag fails_path, method: :get do %>
     <p>
       <%= text_field_tag :query, params[:query], :onclick => 'if($(this).val()=="Search..."){$(this).val("");};', :placeholder => 'Search', :class => "  search-query form-control" %>
     </p>
   <% end %>
+  <ul class="list-unstyled">
+    <li><%= link_to "Best Fails", fails_path, :class => "h4" %></li>
+    <li><%= link_to "Newest Fails", fails_path, :class => "h4" %></li>
+    <li><%= link_to "Your Fails", current_user, :class => "h4" %></li>
+    <li><%= link_to "Submit", new_fail_path, :class => "h4" %></li>
+  </ul>
+</aside>
+<aside class="col-sm-1">
+</aside>
+<aside class="col-sm-6">
   <%= render @fails %>
 </aside>
-<aside class="col-sm-3">
+<aside class="col-sm-2">
 </aside>
