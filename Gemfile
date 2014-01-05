@@ -11,6 +11,7 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'redcarpet'
 gem 'honeybadger'
 gem 'analytics-ruby', '<1.0'
+gem 'intercom-rails', '~> 0.2.21'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

@@ -31,7 +31,7 @@ class Fail < ActiveRecord::Base
   
   def self.text_search(query)
     if query.present?
-      where("name @@ :q or content @@ :q", q: query)
+      where("headline @@ :q or description @@ :q or lesson @@ :q or link @@ :q", q: query)
     else
       scoped
     end
